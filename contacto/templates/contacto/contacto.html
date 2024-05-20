@@ -1,0 +1,27 @@
+{% extends "proyectowebapp/base.html" %} 
+{% load static %} 
+{% block content %}
+
+<div class="contenedorFormulario">
+
+    <!-- feedback para indicar al usuario que est válido -->
+    {% if 'valido' in request.GET %}
+
+        <p style="color: white;">Información de contacto enviada correctamente, gracias!</p>
+
+    {% endif %}
+    <form action="" method="POST" style="text-align:center;">
+        {% csrf_token %}
+        <table style="color: white; margin: 20px auto;">
+            {{ miformulario.as_table }}
+        </table>
+        <input type="submit" name="" value="Enviar" style="width:150px;">
+</div>
+
+<!-- mostrar los datos enviados con POST -->
+{% comment %} 
+<p style="color:white;"> 
+    {{request.POST}} 
+</p> 
+{% endcomment %}
+{% endblock %}
